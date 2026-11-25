@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BCA-501 Advance Data Structure — Complete Detailed Notes &amp; Important Questions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  /* Utilitarian · Comprehensive Exam Notes · Answer-first hero · Blueprint -> Units I-V (Detailed) -> Important Exam Questions · Space Grotesk / Plus Jakarta Sans / JetBrains Mono · Crisp White #FFFFFF + Cobalt #1D4ED8 · 0px radius · 70-mark hero metric · Open tables + SVG chart */
+  :root {
+    --paper: #FFFFFF;
+    --ink: #111827;
+    --ink2: #374151;
+    --mute: #4B5563;
+    --hair: #E5E7EB;
+    --accent: #2563EB;
+    --accent-text: #1D4ED8;
+    --accent-2: #0D9488;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--paper); color: var(--ink); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; padding: 68px clamp(24px, 10.4vw, 112px) 92px; }
+
+  .measure { max-width: 68ch; }
+
+  h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; color: var(--ink); margin: 0; font-weight: 700; }
+  h1 { font-size: clamp(36px, 4.5vw, 52px); line-height: 1.08; letter-spacing: -0.025em; text-wrap: balance; }
+  h2 { font-size: clamp(24px, 2.8vw, 32px); line-height: 1.18; letter-spacing: -0.02em; margin-bottom: 18px; }
+  h3 { font-size: 20px; line-height: 1.3; margin: 30px 0 10px; font-weight: 600; }
+  h4 { font-size: 16px; line-height: 1.35; margin: 20px 0 6px; font-weight: 600; color: var(--accent-text); }
+  p { margin: 0 0 14px; color: var(--ink2); max-width: 68ch; }
+
+  .deck { font-size: 18px; line-height: 1.5; color: var(--mute); max-width: 64ch; margin-top: 16px; }
+  .hero-split { display: grid; grid-template-columns: 8fr 4fr; gap: 32px; align-items: end; padding-bottom: 40px; border-bottom: 1px solid var(--hair); }
+  .hero-num { text-align: right; }
+  .hero-num .big { font-family: 'Space Grotesk', sans-serif; font-size: 68px; line-height: 1; font-weight: 700; color: var(--accent-text); letter-spacing: -0.03em; }
+  .hero-num .cap { font-size: 13px; color: var(--mute); margin-top: 6px; }
+
+  .sec { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--hair); }
+  .sec-first { margin-top: 48px; }
+
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin: 24px 0 32px; }
+  .strip-item { border-top: 2px solid var(--ink); padding-top: 12px; }
+  .strip-val { font-family: 'Space Grotesk', sans-serif; font-size: 24px; font-weight: 700; color: var(--ink); white-space: nowrap; }
+  .strip-lbl { font-size: 14px; color: var(--mute); margin-top: 4px; }
+
+  .split-sec { display: grid; grid-template-columns: 4fr 8fr; gap: 32px; align-items: start; }
+  .two-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px; }
+
+  ul, ol { margin: 0 0 16px; padding-left: 20px; color: var(--ink2); max-width: 68ch; }
+  li { margin-bottom: 8px; }
+  li strong { color: var(--ink); }
+
+  code, .mono { font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: var(--accent-text); }
+  pre { margin: 10px 0 20px; padding: 12px 0 12px 16px; border-left: 2px solid var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 13px; line-height: 1.55; color: var(--ink); overflow-x: auto; white-space: pre; }
+
+  table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 14.5px; }
+  th { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 500; text-align: left; color: var(--mute); border-bottom: 1.5px solid var(--ink); padding: 10px 12px 10px 0; white-space: nowrap; }
+  td { padding: 11px 12px 11px 0; border-bottom: 1px solid var(--hair); color: var(--ink2); vertical-align: top; }
+  td:first-child { font-weight: 600; color: var(--ink); }
+  .num { font-family: 'JetBrains Mono', monospace; font-size: 13px; white-space: nowrap; color: var(--ink); }
+
+  figure { margin: 28px 0 12px; }
+  .fig-title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+  figcaption { font-size: 13px; color: var(--mute); margin-top: 8px; }
+
+  .q-group { padding: 14px 0; border-bottom: 1px solid var(--hair); }
+
+  @media (max-width: 820px) {
+    .hero-split, .split-sec, .two-col, .strip { grid-template-columns: 1fr; }
+    .hero-num { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero-split">
+  <div>
+    <h1>Complete BCA-501 notes and likely exam questions</h1>
+    <p class="deck">Detailed, exam-ready study notes covering every topic across Units I–V of Advance Data Structure (LNCT University, Bhopal), followed by high-probability questions structured to match your 70-mark paper format.</p>
+  </div>
+  <div class="hero-num">
+    <div class="big">70</div>
+    <div class="cap">Total Marks · 3 Hours · 4 Sections</div>
+  </div>
+</header>
+
+<section class="sec-first">
+  <h2>Understanding the 70-mark pattern helps you prioritize derivations and core algorithms</h2>
+  <p class="measure">Based on the Nov 2025 paper format, 55 of the 70 marks come from Short and Long Answer questions. To score full marks on 7-mark and 10-mark questions, always follow a four-part answer structure: definition, pseudocode, basic operation/recurrence, and final asymptotic bound.</p>
+
+  <div class="strip">
+    <div class="strip-item">
+      <div class="strip-val">5 × 1 = 5</div>
+      <div class="strip-lbl">Sec A: Objective MCQs (All compulsory)</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-val">5 × 2 = 10</div>
+      <div class="strip-lbl">Sec B: Very Short (2–3 line definitions)</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-val">5 × 7 = 35</div>
+      <div class="strip-lbl">Q3: Short Answer (Attempt any 5 of 6)</div>
+    </div>
+    <div class="strip-item">
+      <div class="strip-val">2 × 10 = 20</div>
+      <div class="strip-lbl">Q4: Long Answer (Attempt any 2 of 3)</div>
+    </div>
+  </div>
+
+  <figure>
+    <div class="fig-title">Short and Long Answer questions make up 79% of the total marks</div>
+    <svg viewBox="0 0 680 260" width="100%" xmlns="http://www.w3.org/2000/svg">
+      <line x1="170" y1="20" x2="170" y2="210" stroke="#E5E7EB" stroke-width="1"/>
+      <line x1="290" y1="20" x2="290" y2="210" stroke="#E5E7EB" stroke-width="1"/>
+      <line x1="410" y1="20" x2="410" y2="210" stroke="#E5E7EB" stroke-width="1"/>
+      <line x1="530" y1="20" x2="530" y2="210" stroke="#E5E7EB" stroke-width="1"/>
+
+      <text x="158" y="48" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif" font-size="14" fill="#111827">Q3 Short (5 of 6)</text>
+      <rect x="170" y="30" width="385" height="28" fill="#2563EB"/>
+      <text x="565" y="49" font-family="JetBrains Mono, monospace" font-size="13.5" fill="#1D4ED8">35 marks (50%)</text>
+
+      <text x="158" y="98" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif" font-size="14" fill="#111827">Q4 Long (2 of 3)</text>
+      <rect x="170" y="80" width="220" height="28" fill="#0D9488"/>
+      <text x="400" y="99" font-family="JetBrains Mono, monospace" font-size="13.5" fill="#111827">20 marks (29%)</text>
+
+      <text x="158" y="148" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif" font-size="14" fill="#111827">Sec B Very Short</text>
+      <rect x="170" y="130" width="110" height="28" fill="#4B5563"/>
+      <text x="290" y="149" font-family="JetBrains Mono, monospace" font-size="13.5" fill="#111827">10 marks (14%)</text>
+
+      <text x="158" y="198" text-anchor="end" font-family="Plus Jakarta Sans, sans-serif" font-size="14" fill="#111827">Sec A Objective</text>
+      <rect x="170" y="180" width="55" height="28" fill="#9CA3AF"/>
+      <text x="235" y="199" font-family="JetBrains Mono, monospace" font-size="13.5" fill="#111827">5 marks (7%)</text>
+
+      <line x1="170" y1="218" x2="580" y2="218" stroke="#4B5563" stroke-width="1.25"/>
+      <text x="170" y="238" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12.5" fill="#4B5563">0</text>
+      <text x="290" y="238" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12.5" fill="#4B5563">11</text>
+      <text x="410" y="238" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12.5" fill="#4B5563">22</text>
+      <text x="530" y="238" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12.5" fill="#4B5563">33</text>
+      <text x="375" y="255" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-size="13" fill="#4B5563">Marks weight per section</text>
+    </svg>
+    <figcaption>Reference: LNCT University BCA-501 Examination Paper Format (Total 70 marks, 3 hours).</figcaption>
+  </figure>
+</section>
+
+<section class="sec">
+  <div class="split-sec">
+    <div>
+      <h2>Unit I: Notion of Algorithm, Problem Solving &amp; Asymptotic Notations</h2>
+      <p>Unit I establishes how algorithms are defined, designed, and measured independently of hardware or programming language.</p>
+    </div>
+    <div>
+      <h3>1. Introduction &amp; Notion of an Algorithm</h3>
+      <p>An <strong>algorithm</strong> is a finite sequence of unambiguous instructions for solving a problem—producing a required output for any legitimate input in a finite amount of time. Unlike a computer program (which is written in a specific language), an algorithm is an abstract step-by-step method.</p>
+      <ul>
+        <li><strong>Input:</strong> Zero or more quantities are externally supplied from a specified set of valid inputs.</li>
+        <li><strong>Output:</strong> At least one quantity is produced as the result.</li>
+        <li><strong>Definiteness (Unambiguity):</strong> Every step must be crystal clear with a single, exact meaning.</li>
+        <li><strong>Finiteness:</strong> The algorithm must terminate after a finite number of steps for all valid inputs.</li>
+        <li><strong>Effectiveness:</strong> Every instruction must be basic enough to be carried out in principle with pencil and paper in finite time.</li>
+      </ul>
+
+      <h3>2. Fundamentals of Algorithmic Problem Solving</h3>
+      <p>Designing a reliable algorithm follows eight sequential stages:</p>
+      <ol>
+        <li><strong>Understand the problem:</strong> Read carefully, identify the input domain, and check special/edge cases.</li>
+        <li><strong>Ascertain computational device capabilities:</strong> Decide between sequential execution (RAM model—one instruction at a time) and parallel execution, and note memory/speed limits.</li>
+        <li><strong>Choose exact vs. approximate solving:</strong> Use exact algorithms when exact answers exist (sorting, shortest path); use approximation when exact calculation is impossible (continuous math like roots/integrals) or too slow (NP-hard problems).</li>
+        <li><strong>Decide on data structures:</strong> Select arrays, linked lists, stacks, queues, trees, heaps, or graphs that best fit the algorithm's dominant operations.</li>
+        <li><strong>Design the algorithm:</strong> Choose a design paradigm (Brute Force, Divide &amp; Conquer, Greedy, Dynamic Programming, Backtracking) and write pseudocode.</li>
+        <li><strong>Prove correctness:</strong> Prove that the algorithm gives the right output for all valid inputs in finite time, typically via <em>mathematical induction</em> or loop invariants.</li>
+        <li><strong>Analyze the algorithm:</strong> Evaluate <em>time efficiency</em> (how fast it runs), <em>space efficiency</em> (extra memory used), and simplicity.</li>
+        <li><strong>Code and test:</strong> Implement in a programming language and verify against boundary cases.</li>
+      </ol>
+
+      <h3>3. Important Problem Types</h3>
+      <ul>
+        <li><strong>Sorting:</strong> Rearranging elements in ascending or descending order (Merge Sort, Quick Sort, Heap Sort).</li>
+        <li><strong>Searching:</strong> Finding a search key in a collection (Sequential Search, Binary Search, Hashing).</li>
+        <li><strong>String Processing:</strong> Manipulating character sequences, especially pattern matching (Brute-Force String Matching).</li>
+        <li><strong>Graph Problems:</strong> Modeling networks of vertices and edges to find paths, cycles, or spanning trees (BFS, DFS, Dijkstra, Prim, Kruskal).</li>
+        <li><strong>Combinatorial Problems:</strong> Finding a permutation, combination, or subset that optimizes an objective (Traveling Salesman, Knapsack, Subset-Sum).</li>
+        <li><strong>Geometric Problems:</strong> Working with points, lines, and polygons (Closest-Pair, Convex Hull).</li>
+        <li><strong>Numerical Problems:</strong> Solving continuous mathematical problems using discrete approximations (equations, integrals).</li>
+      </ul>
+
+      <h3>4. Fundamentals of the Analysis Framework</h3>
+      <ul>
+        <li><strong>Measuring Input Size (n):</strong> Efficiency is expressed as a function of input size <em>n</em>—such as the number of elements in an array, matrix dimension <code>n×n</code>, number of vertices/edges in a graph, or bit length <code>b = ⌊log₂ n⌋ + 1</code> for integer algorithms.</li>
+        <li><strong>Basic Operation &amp; Running Time:</strong> Instead of wall-clock seconds (which vary by CPU and compiler), we count executions of the <strong>basic operation</strong>—the most time-consuming operation inside the innermost loop (usually a key comparison or multiplication). Total time is <code>T(n) ≈ c_op · C(n)</code>.</li>
+        <li><strong>Orders of Growth:</strong> For large <em>n</em>, only the dominant term matters; constant multipliers and lower-order terms are ignored (e.g., <code>4n² + 15n + 7</code> grows proportionally to <code>n²</code>).</li>
+        <li><strong>Worst-Case, Best-Case, Average-Case:</strong> <em>Worst-case</em> <code>C_worst(n)</code> gives the maximum steps for any input of size <em>n</em> (guarantees an upper bound). <em>Best-case</em> <code>C_best(n)</code> gives the minimum steps. <em>Average-case</em> <code>C_avg(n)</code> gives the expected steps over a random input distribution.</li>
+      </ul>
+
+      <h3>5. Asymptotic Notations &amp; Basic Efficiency Classes</h3>
+      <ul>
+        <li><strong>Big-O — O(g(n)) (Upper Bound):</strong> <code>t(n) ∈ O(g(n))</code> if there exist constants <code>c &gt; 0</code> and <code>n₀ ≥ 0</code> such that <code>t(n) ≤ c·g(n)</code> for all <code>n ≥ n₀</code>. Used for worst-case upper bounds. <em>Example:</em> <code>3n + 5 ∈ O(n)</code> with <code>c = 4, n₀ = 5</code>.</li>
+        <li><strong>Big-Omega — Ω(g(n)) (Lower Bound):</strong> <code>t(n) ∈ Ω(g(n))</code> if there exist constants <code>c &gt; 0</code> and <code>n₀ ≥ 0</code> such that <code>t(n) ≥ c·g(n)</code> for all <code>n ≥ n₀</code>. Used for lower bounds. <em>Example:</em> <code>n² + 2n ∈ Ω(n²)</code> with <code>c = 1, n₀ = 0</code>.</li>
+        <li><strong>Big-Theta — Θ(g(n)) (Tight Bound):</strong> <code>t(n) ∈ Θ(g(n))</code> if there exist constants <code>c₁, c₂ &gt; 0</code> and <code>n₀ ≥ 0</code> such that <code>c₁·g(n) ≤ t(n) ≤ c₂·g(n)</code> for all <code>n ≥ n₀</code>. Used when upper and lower bounds match.</li>
+      </ul>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Efficiency Class</th>
+        <th>Name</th>
+        <th>Behavior as n Doubles</th>
+        <th>Typical Algorithm Examples</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td>Constant</td>
+        <td>No change</td>
+        <td>Array index access, push/pop on a stack</td>
+      </tr>
+      <tr>
+        <td class="num">log n</td>
+        <td>Logarithmic</td>
+        <td>Increases by 1 step</td>
+        <td>Binary Search, AVL tree lookup</td>
+      </tr>
+      <tr>
+        <td class="num">n</td>
+        <td>Linear</td>
+        <td>Doubles (2×)</td>
+        <td>Sequential Search, finding max/min in array</td>
+      </tr>
+      <tr>
+        <td class="num">n log n</td>
+        <td>Linearithmic</td>
+        <td>Slightly more than 2×</td>
+        <td>Merge Sort, Heap Sort, Quick Sort (average)</td>
+      </tr>
+      <tr>
+        <td class="num">n²</td>
+        <td>Quadratic</td>
+        <td>Quadruples (4×)</td>
+        <td>Bubble Sort, Selection Sort, Insertion Sort</td>
+      </tr>
+      <tr>
+        <td class="num">n³</td>
+        <td>Cubic</td>
+        <td>8× slower</td>
+        <td>Warshall's, Floyd's, Matrix Multiplication</td>
+      </tr>
+      <tr>
+        <td class="num">2ⁿ</td>
+        <td>Exponential</td>
+        <td>Squares</td>
+        <td>Recursive Fibonacci, generating all subsets</td>
+      </tr>
+      <tr>
+        <td class="num">n!</td>
+        <td>Factorial</td>
+        <td>Explodes</td>
+        <td>Brute-force Traveling Salesman (permutations)</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="sec">
+  <div class="split-sec">
+    <div>
+      <h2>Unit II: Mathematical, Empirical &amp; Visual Analysis</h2>
+      <p>Unit II teaches how to convert loops into summations and recursive calls into recurrence relations, plus how to test algorithms empirically.</p>
+    </div>
+    <div>
+      <h3>1. Mathematical Analysis of Non-Recursive Algorithms</h3>
+      <p>Follow this five-step plan for loop-based algorithms:</p>
+      <ol>
+        <li>Decide on parameter <em>n</em> indicating input size.</li>
+        <li>Identify the basic operation inside the innermost loop.</li>
+        <li>Check whether the basic operation count depends only on <em>n</em> (if not, analyze worst, best, and average cases separately).</li>
+        <li>Set up a summation expressing the total basic operation count.</li>
+        <li>Simplify the summation using standard closed-form formulas:</li>
+      </ol>
+      <pre>∑_{i=l}^{u} 1 = u - l + 1       ∑_{i=1}^{n} i = n(n+1)/2 ∈ Θ(n²)       ∑_{i=1}^{n} i² = n(n+1)(2n+1)/6 ∈ Θ(n³)</pre>
+      <p><strong>Worked Example — Element Uniqueness:</strong> Check if all elements in <code>A[0..n-1]</code> are distinct.</p>
+      <pre>Algorithm UniqueElements(A[0..n-1])
+  for i ← 0 to n - 2 do
+    for j ← i + 1 to n - 1 do
+      if A[i] = A[j] then return false
+  return true
+
+Worst-Case Comparisons (all elements distinct):
+C_worst(n) = ∑_{i=0}^{n-2} ∑_{j=i+1}^{n-1} 1 = ∑_{i=0}^{n-2} (n - 1 - i) = (n - 1)n / 2 ∈ Θ(n²)</pre>
+
+      <h3>2. Mathematical Analysis of Recursive Algorithms</h3>
+      <p>Follow this five-step plan for recursive algorithms:</p>
+      <ol>
+        <li>Decide on input size parameter <em>n</em>.</li>
+        <li>Identify the basic operation.</li>
+        <li>Check if worst/best/average cases differ.</li>
+        <li>Set up a <strong>recurrence relation</strong> with an appropriate <strong>initial condition</strong>.</li>
+        <li>Solve the recurrence using <strong>backward substitution</strong> or the <strong>Master Theorem</strong>.</li>
+      </ol>
+      <p><strong>Worked Example — Recursive Factorial:</strong></p>
+      <pre>Algorithm Fact(n)
+  if n = 0 return 1
+  else return Fact(n - 1) * n
+
+Basic Operation: Multiplication (*)
+Recurrence: M(n) = M(n - 1) + 1  for n &gt; 0,   Initial condition: M(0) = 0
+Backward substitution:
+M(n) = M(n - 1) + 1
+     = [M(n - 2) + 1] + 1 = M(n - 2) + 2
+     = [M(n - 3) + 1] + 2 = M(n - 3) + 3
+     ...
+     = M(n - n) + n = M(0) + n = n ∈ Θ(n)</pre>
+
+      <h3>3. Example: Fibonacci Numbers</h3>
+      <p>The Fibonacci sequence is <code>0, 1, 1, 2, 3, 5, 8, ...</code> defined by <code>F(n) = F(n - 1) + F(n - 2)</code> with <code>F(0) = 0, F(1) = 1</code>.</p>
+      <ul>
+        <li><strong>Naive Recursive Algorithm:</strong> <code>if n ≤ 1 return n; else return Fib(n-1) + Fib(n-2)</code>. The recurrence for additions is <code>A(n) = A(n - 1) + A(n - 2) + 1</code> with <code>A(0) = A(1) = 0</code>. Solving this yields <code>A(n) ∈ Θ(φⁿ)</code> where <code>φ = (1 + √5)/2 ≈ 1.618</code>. It is <strong>exponential</strong> because the recursion tree recomputes the same values (e.g., <code>F(2)</code>, <code>F(1)</code>) repeatedly.</li>
+        <li><strong>Iterative (Non-Recursive) Algorithm:</strong> Store two variables <code>a = 0, b = 1</code> and iterate from <code>2</code> to <code>n</code> updating <code>c = a + b; a = b; b = c</code>. This runs in <code>Θ(n)</code> time and <code>Θ(1)</code> space.</li>
+      </ul>
+
+      <h3>4. Empirical Analysis &amp; Algorithm Visualization</h3>
+      <p><strong>Empirical Analysis</strong> tests an implemented program on real inputs when mathematical analysis is too hard or when comparing constant factors. Steps: (1) understand the experiment's goal, (2) choose metric <em>M</em> (CPU time in ms or basic-op counter), (3) decide input characteristics (range of <em>n</em>, random vs. sorted), (4) implement and generate sample inputs, (5) run and record results, and (6) plot data to observe growth behavior.</p>
+      <p><strong>Algorithm Visualization</strong> uses graphics to illustrate algorithm behavior. <em>Static visualization</em> shows still snapshots at key moments (e.g., array states after each pass); <em>Dynamic visualization (animation)</em> shows continuous step-by-step execution. It is used in education to build intuition and in software engineering to debug or spot bottlenecks.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Unit III: Brute Force, Divide &amp; Conquer, Trees &amp; Decrease &amp; Conquer</h2>
+  <p class="measure">Unit III covers the core sorting, searching, string matching, and tree traversal algorithms that dominate Short and Long Answer questions.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Algorithm</th>
+        <th>Design Paradigm</th>
+        <th>Best</th>
+        <th>Average</th>
+        <th>Worst</th>
+        <th>Extra Space</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Selection Sort</td>
+        <td>Brute Force</td>
+        <td class="num">Θ(n²)</td>
+        <td class="num">Θ(n²)</td>
+        <td class="num">Θ(n²)</td>
+        <td class="num">O(1)</td>
+      </tr>
+      <tr>
+        <td>Bubble Sort</td>
+        <td>Brute Force</td>
+        <td class="num">Θ(n)</td>
+        <td class="num">Θ(n²)</td>
+        <td class="num">Θ(n²)</td>
+        <td class="num">O(1)</td>
+      </tr>
+      <tr>
+        <td>Sequential Search</td>
+        <td>Brute Force</td>
+        <td class="num">O(1)</td>
+        <td class="num">Θ(n)</td>
+        <td class="num">O(n)</td>
+        <td class="num">O(1)</td>
+      </tr>
+      <tr>
+        <td>Brute-Force String Match</td>
+        <td>Brute Force</td>
+        <td class="num">O(m)</td>
+        <td class="num">Θ(n)</td>
+        <td class="num">O(nm)</td>
+        <td class="num">O(1)</td>
+      </tr>
+      <tr>
+        <td>Merge Sort</td>
+        <td>Divide &amp; Conquer</td>
+        <td class="num">Θ(n log n)</td>
+        <td class="num">Θ(n log n)</td>
+        <td class="num">Θ(n log n)</td>
+        <td class="num">Θ(n)</td>
+      </tr>
+      <tr>
+        <td>Quick Sort</td>
+        <td>Divide &amp; Conquer</td>
+        <td class="num">Θ(n log n)</td>
+        <td class="num">Θ(n log n)</td>
+        <td class="num">Θ(n²)</td>
+        <td class="num">O(log n)</td>
+      </tr>
+      <tr>
+        <td>Binary Search</td>
+        <td>Divide &amp; Conquer</td>
+        <td class="num">O(1)</td>
+        <td class="num">Θ(log n)</td>
+        <td class="num">O(log n)</td>
+        <td class="num">O(1)</td>
+      </tr>
+      <tr>
+        <td>Insertion Sort</td>
+        <td>Decrease &amp; Conquer</td>
+        <td class="num">Θ(n)</td>
+        <td class="num">Θ(n²)</td>
+        <td class="num">Θ(n²)</td>
+        <td class="num">O(1)</td>
+      </tr>
+      <tr>
+        <td>Heap Sort</td>
+        <td>Transform &amp; Conquer</td>
+        <td class="num">Θ(n log n)</td>
+        <td class="num">Θ(n log n)</td>
+        <td class="num">Θ(n log n)</td>
+        <td class="num">O(1)</td>
+      </tr>
+      <tr>
+        <td>Warshall / Floyd</td>
+        <td>Dynamic Programming</td>
+        <td class="num">Θ(n³)</td>
+        <td class="num">Θ(n³)</td>
+        <td class="num">Θ(n³)</td>
+        <td class="num">Θ(n²)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="two-col">
+    <div>
+      <h3>1. Brute Force Algorithms</h3>
+      <p>Brute force solves a problem straightforwardly, directly following the problem statement.</p>
+      <h4>Selection Sort</h4>
+      <p>Scans the unsorted subarray <code>A[i..n-1]</code> to find the smallest element and swaps it with <code>A[i]</code>.</p>
+      <pre>SelectionSort(A[0..n-1]):
+  for i ← 0 to n - 2 do
+    min ← i
+    for j ← i + 1 to n - 1 do
+      if A[j] &lt; A[min] then min ← j
+    swap A[i] and A[min]
+// Comparisons: ∑_{i=0}^{n-2} (n - 1 - i) = n(n-1)/2 ∈ Θ(n²); Swaps: n - 1</pre>
+
+      <h4>Bubble Sort</h4>
+      <p>Repeatedly compares adjacent elements and swaps them if out of order, bubbling the largest element to the end on each pass. Adding a <code>swapped</code> flag lets it stop early on sorted arrays.</p>
+      <pre>BubbleSort(A[0..n-1]):
+  for i ← 0 to n - 2 do
+    swapped ← false
+    for j ← 0 to n - 2 - i do
+      if A[j+1] &lt; A[j] then
+        swap A[j] and A[j+1]
+        swapped ← true
+    if not swapped then break
+// Worst/Avg: n(n-1)/2 ∈ Θ(n²); Best (sorted): n - 1 ∈ Θ(n)</pre>
+
+      <h4>Sequential Search &amp; Brute-Force String Matching</h4>
+      <p><strong>Sequential Search:</strong> Scans <code>A[0..n-1]</code> left to right until key <code>K</code> is found or end is reached. Best case <code>O(1)</code>, worst case <code>O(n)</code>, average case <code>≈ n/2 ∈ Θ(n)</code>.</p>
+      <p><strong>Brute-Force String Matching:</strong> Aligns pattern <code>P[0..m-1]</code> against text <code>T[0..n-1]</code> at each shift <code>i = 0..n-m</code> and checks characters left to right. Worst case (e.g., <code>T = "AAAA...B"</code>, <code>P = "AAB"</code>) performs <code>m(n - m + 1) ∈ O(nm)</code> comparisons.</p>
+    </div>
+
+    <div>
+      <h3>2. Divide &amp; Conquer, Binary Trees &amp; Decrease &amp; Conquer</h3>
+      <p>Divide &amp; Conquer splits a problem into smaller subproblems of the same type, solves them recursively, and combines their solutions.</p>
+      <h4>Merge Sort &amp; Recurrence Derivation</h4>
+      <pre>MergeSort(A[0..n-1]):
+  if n &gt; 1 then
+    copy A[0..⌊n/2⌋-1] to B; copy A[⌊n/2⌋..n-1] to C
+    MergeSort(B); MergeSort(C)
+    Merge(B, C, A)   // at most n - 1 comparisons
+
+Worst-Case Recurrence (assume n = 2^k):
+C(n) = 2C(n/2) + n - 1,  C(1) = 0
+Approximating n - 1 ≈ n:
+C(2^k) = 2C(2^{k-1}) + 2^k
+       = 2[2C(2^{k-2}) + 2^{k-1}] + 2^k = 2²C(2^{k-2}) + 2·2^k
+       = 2^k C(1) + k·2^k = 0 + (log₂ n)·n ∈ Θ(n log n)</pre>
+
+      <h4>Quick Sort</h4>
+      <p>Selects a <strong>pivot</strong> and partitions the array so elements <code>≤ pivot</code> lie on the left and <code>≥ pivot</code> lie on the right, then sorts both subarrays recursively. Best/Average case is <code>Θ(n log n)</code>; Worst case (already sorted array with first/last element as pivot) is <code>Θ(n²)</code>.</p>
+
+      <h4>Binary Search &amp; Recurrence Derivation</h4>
+      <p>Searches a <strong>sorted</strong> array by comparing key <code>K</code> with middle element <code>A[m]</code> and discarding half the array each step.</p>
+      <pre>Recurrence: C_worst(n) = C_worst(⌊n/2⌋) + 1,  C_worst(1) = 1
+For n = 2^k:
+C(2^k) = C(2^{k-1}) + 1 = C(2^{k-2}) + 2 = ... = C(1) + k = 1 + log₂ n ∈ Θ(log n)</pre>
+
+      <h4>Binary Tree Traversals &amp; Properties</h4>
+      <ul>
+        <li><strong>Preorder:</strong> Root → Left → Right (used to copy/serialize a tree).</li>
+        <li><strong>Inorder:</strong> Left → Root → Right (produces <strong>sorted ascending order</strong> on a Binary Search Tree).</li>
+        <li><strong>Postorder:</strong> Left → Right → Root (used to delete a tree or evaluate expression trees).</li>
+        <li><strong>Key Properties:</strong> A binary tree with <code>n</code> internal nodes has <code>n + 1</code> external (null) nodes; height <code>h</code> satisfies <code>⌊log₂ n⌋ ≤ h ≤ n - 1</code>.</li>
+      </ul>
+
+      <h4>Decrease &amp; Conquer: Insertion Sort</h4>
+      <p>Reduces problem size by 1 each step: assumes <code>A[0..i-1]</code> is sorted and inserts <code>A[i]</code> into its correct position by shifting larger elements right. Best case (sorted) is <code>Θ(n)</code>; worst/average case is <code>Θ(n²)</code>. Ideal for nearly sorted arrays.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Unit IV: Transform &amp; Conquer, AVL Trees, Heaps &amp; Dynamic Programming</h2>
+  <div class="two-col">
+    <div>
+      <h3>1. Presorting &amp; AVL Trees</h3>
+      <p><strong>Presorting (Instance Simplification):</strong> Sorting an array first in <code>Θ(n log n)</code> makes many problems trivial—for example, checking element uniqueness drops from <code>Θ(n²)</code> to <code>Θ(n log n)</code> (just scan adjacent elements), and finding the mode becomes a single linear pass.</p>
+      <p><strong>AVL Trees (Balanced Search Trees):</strong> An AVL tree is a Binary Search Tree in which every node's <strong>Balance Factor</strong> <code>BF = height(Left) - height(Right)</code> must be <code>-1</code>, <code>0</code>, or <code>+1</code>. This guarantees <code>O(log n)</code> height and lookup. When an insertion makes <code>|BF| = 2</code> at the nearest ancestor <em>z</em>, rebalance using one of four rotations:</p>
+      <ul>
+        <li><strong>LL Rotation (Single Right):</strong> New node inserted in Left subtree of Left child of <em>z</em> → perform one right rotation at <em>z</em>.</li>
+        <li><strong>RR Rotation (Single Left):</strong> New node inserted in Right subtree of Right child of <em>z</em> → perform one left rotation at <em>z</em>.</li>
+        <li><strong>LR Rotation (Double):</strong> New node inserted in Right subtree of Left child → left-rotate the left child, then right-rotate <em>z</em>.</li>
+        <li><strong>RL Rotation (Double):</strong> New node inserted in Left subtree of Right child → right-rotate the right child, then left-rotate <em>z</em>.</li>
+      </ul>
+
+      <h3>2. Dynamic Programming: Warshall's &amp; Floyd's</h3>
+      <p>Dynamic Programming solves overlapping subproblems bottom-up and stores intermediate results in a table.</p>
+      <p><strong>Warshall's Algorithm (Transitive Closure):</strong> Computes reachability matrix <code>R</code> of a directed graph (<code>R[i,j] = 1</code> if a directed path exists from <code>i</code> to <code>j</code>):</p>
+      <pre>for k ← 1 to n do
+  for i ← 1 to n do
+    for j ← 1 to n do
+      R[i, j] ← R[i, j] OR (R[i, k] AND R[k, j])</pre>
+      <p><strong>Floyd's Algorithm (All-Pairs Shortest Paths):</strong> Computes shortest path distance matrix <code>D</code> between every pair of vertices in a weighted graph (no negative cycles):</p>
+      <pre>for k ← 1 to n do
+  for i ← 1 to n do
+    for j ← 1 to n do
+      D[i, j] ← min(D[i, j],  D[i, k] + D[k, j])</pre>
+      <p>Both algorithms run in <code>Θ(n³)</code> time and <code>Θ(n²)</code> space.</p>
+    </div>
+
+    <div>
+      <h3>3. Heaps &amp; Heap Sort</h3>
+      <p>A <strong>Heap</strong> is a complete binary tree stored compactly in an array <code>A[1..n]</code> where node <code>i</code> has parent <code>⌊i/2⌋</code>, left child <code>2i</code>, and right child <code>2i + 1</code>.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Min-Heap</th>
+            <th>Max-Heap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Heap-Order Rule</td>
+            <td><code>A[parent] ≤ A[child]</code></td>
+            <td><code>A[parent] ≥ A[child]</code></td>
+          </tr>
+          <tr>
+            <td>Root Element</td>
+            <td>Smallest element</td>
+            <td>Largest element</td>
+          </tr>
+          <tr>
+            <td>Primary Use</td>
+            <td>Priority Queue, Dijkstra, Prim</td>
+            <td>Heap Sort (ascending)</td>
+          </tr>
+          <tr>
+            <td>Example Array</td>
+            <td class="num">[2, 5, 8, 10, 9]</td>
+            <td class="num">[10, 9, 8, 5, 2]</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <pre>Heapify(A, i, n):   // restores Max-Heap at index i
+  largest ← i; l ← 2i; r ← 2i + 1
+  if l ≤ n and A[l] &gt; A[largest] then largest ← l
+  if r ≤ n and A[r] &gt; A[largest] then largest ← r
+  if largest ≠ i then
+    swap A[i] and A[largest]
+    Heapify(A, largest, n)
+
+HeapSort(A, n):
+  // Phase 1: Build Max-Heap bottom-up in O(n)
+  for i ← ⌊n/2⌋ downto 1 do Heapify(A, i, n)
+  // Phase 2: Swap root with end &amp; heapify (n - 1) times
+  for i ← n downto 2 do
+    swap A[1] and A[i]
+    Heapify(A, 1, i - 1)
+// Time: O(n) + (n - 1)·O(log n) ∈ Θ(n log n); Space: O(1)</pre>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="split-sec">
+    <div>
+      <h2>Unit V: Backtracking, Branch &amp; Bound &amp; Complexity Classes</h2>
+      <p>Unit V handles NP-hard combinatorial problems by systematically searching state-space trees and pruning hopeless branches early.</p>
+    </div>
+    <div>
+      <h3>1. Backtracking (Depth-First State-Space Search)</h3>
+      <p>Backtracking builds solutions one component at a time using a <strong>state-space tree</strong> (DFS). If a partial solution violates a constraint (non-promising node), it prunes that subtree immediately and backtracks to the parent.</p>
+      <ul>
+        <li><strong>n-Queen's Problem:</strong> Place <em>n</em> queens on an <code>n×n</code> chessboard so no two attack each other. Place one queen per row <code>r</code> in column <code>c</code> such that no earlier queen shares the same column (<code>cᵢ ≠ cⱼ</code>) or diagonal (<code>|rᵢ - rⱼ| ≠ |cᵢ - cⱼ|</code>).</li>
+        <li><strong>Hamiltonian Circuit Problem:</strong> Find a simple cycle in a graph <code>G = (V, E)</code> that visits every vertex exactly once and returns to the start vertex. At step <code>k</code>, only choose a vertex adjacent to <code>v_{k-1}</code> that has not been visited yet (and at step <code>n</code>, it must connect back to <code>v₁</code>).</li>
+        <li><strong>Subset-Sum Problem:</strong> Given positive integers <code>S = {w₁, ..., wₙ}</code> sorted ascending and target <code>d</code>, build a binary tree (left = include <code>wᵢ</code>, right = exclude <code>wᵢ</code>). Prune if <code>current_sum + wᵢ &gt; d</code> or <code>current_sum + remaining_sum &lt; d</code>.</li>
+      </ul>
+
+      <h3>2. Branch and Bound (Best-First Optimization Search)</h3>
+      <p>Unlike backtracking (which stops at any valid solution or checks all), Branch and Bound solves <strong>optimization problems</strong> by computing a numerical <strong>bound</strong> (lower bound for minimization, upper bound for maximization) for every node and expanding the most promising node first (best-first search). A branch is pruned if its bound is worse than the best solution already found.</p>
+      <ul>
+        <li><strong>Assignment Problem:</strong> Assign <em>n</em> jobs to <em>n</em> people with minimum total cost. Lower bound at any node = cost assigned so far + sum of minimum costs in each remaining unassigned row.</li>
+        <li><strong>0/1 Knapsack Problem:</strong> Maximize value within capacity <em>W</em>. Sort items by value-to-weight ratio <code>vᵢ/wᵢ</code> descending. Upper bound = <code>v + (W - w)(v_{i+1}/w_{i+1})</code>.</li>
+        <li><strong>Traveling Salesman Problem (TSP):</strong> Find shortest tour visiting all cities once. Lower bound = half the sum of the two smallest edges incident to each vertex (or via reduced cost matrix).</li>
+      </ul>
+
+      <h3>3. Complexity Classes: P, NP, and NP-Complete</h3>
+      <ul>
+        <li><strong>Class P (Polynomial Time):</strong> Decision problems solvable in polynomial time <code>O(n^k)</code> by a deterministic algorithm. <em>Examples:</em> Binary Search, Merge Sort, Shortest Path (Dijkstra).</li>
+        <li><strong>Class NP (Nondeterministic Polynomial Time):</strong> Decision problems whose proposed solution can be <em>verified</em> in polynomial time. Every problem in P is also in NP (<code>P ⊆ NP</code>). <em>Examples:</em> Graph Coloring, Integer Factorization.</li>
+        <li><strong>Class NP-Complete:</strong> The hardest problems in NP—every problem in NP can be reduced to an NP-Complete problem in polynomial time. If any NP-Complete problem is solved in polynomial time, then <code>P = NP</code>. <em>Examples:</em> 3-SAT, Hamiltonian Circuit, 0/1 Knapsack, TSP (decision).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <h2>Important Questions for Tomorrow's Exam (By Paper Section)</h2>
+  <p class="measure">Based on the LNCT University syllabus and the Nov 2025 paper pattern, prepare these high-probability questions for each section.</p>
+
+  <div class="two-col">
+    <div>
+      <h3>Section A — Likely 1-Mark MCQ Topics</h3>
+      <ul>
+        <li>Goal of algorithm analysis (predicting time/space resource requirements).</li>
+        <li>Which paradigm an algorithm uses (Merge/Quick Sort → Divide &amp; Conquer; Insertion Sort → Decrease &amp; Conquer; Heap Sort → Transform &amp; Conquer; Floyd/Warshall → Dynamic Programming).</li>
+        <li>BST Inorder traversal produces <strong>sorted ascending order</strong>.</li>
+        <li>Best/worst-case complexities: Binary Search <code>O(log n)</code>, Merge Sort <code>Θ(n log n)</code>, Quick Sort worst <code>Θ(n²)</code>, Heap Sort <code>Θ(n log n)</code>, Floyd's <code>Θ(n³)</code>.</li>
+        <li>Balance factor values allowed in an AVL tree (<code>-1, 0, +1</code>).</li>
+      </ul>
+
+      <h3>Section B — Likely 2-Mark Very Short Questions</h3>
+      <ol>
+        <li>Define an algorithm and list its five essential characteristics.</li>
+        <li>Define Big-O, Big-Omega, and Big-Theta notations mathematically.</li>
+        <li>What is an AVL tree? State its balance factor formula.</li>
+        <li>Differentiate between static and dynamic algorithm visualization.</li>
+        <li>What is Backtracking? How does it differ from Branch and Bound?</li>
+        <li>Define the Hamiltonian Circuit Problem or n-Queen's Problem.</li>
+        <li>Give two examples each of P, NP, and NP-Complete problems.</li>
+      </ol>
+    </div>
+
+    <div>
+      <h3>Q3 — High-Probability 7-Mark Short Questions</h3>
+      <ol>
+        <li>Compare all 8 basic efficiency classes with examples and growth order.</li>
+        <li>Explain the general plan for analyzing non-recursive vs. recursive algorithms with one example each (e.g., Factorial or Fibonacci).</li>
+        <li>Write and analyze Selection Sort, Bubble Sort, and Insertion Sort (compare best vs. worst cases).</li>
+        <li>Derive the time complexity of Binary Search using recurrence relations.</li>
+        <li>Write the Heap Sort algorithm (`Heapify` + `HeapSort`) and prove its `Θ(n log n)` complexity.</li>
+        <li>Explain AVL tree rotations (LL, RR, LR, RL) with diagrams/examples.</li>
+        <li>Describe the Subset-Sum or n-Queen's problem and explain its backtracking solution with pruning rules.</li>
+      </ol>
+
+      <h3>Q4 — High-Probability 10-Mark Long Questions</h3>
+      <ol>
+        <li>Explain the complete algorithm analysis framework: input size, basic operation, orders of growth, and worst/best/average cases.</li>
+        <li>Write the Merge Sort algorithm, derive its worst-case recurrence relation, and solve it step-by-step.</li>
+        <li>Differentiate between Min-Heap and Max-Heap with array representations, operations, and examples.</li>
+        <li>Explain Warshall's and Floyd's Dynamic Programming algorithms with pseudocode and time/space analysis.</li>
+        <li>Solve the 0/1 Knapsack or Traveling Salesman Problem using Branch and Bound (explain bounding &amp; pruning).</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
